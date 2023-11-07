@@ -1,26 +1,20 @@
 #Script to plot the logistic growth data
 
-growth_data <- read.csv("???")
+library(tidyverse)
+library(here)
 
-install.packages("ggplot2")
-library(ggplot2)
+# ===== start with experiment1.csv =====
 
-ggplot(aes(t,N), data = ???) +
-  
+growth_data <- read.csv("Code/experiment1.csv") # import data, may need to change directory depending on working directory..
+
+ggplot(aes(t,N), data = growth_data) + # plot data as scatterplot
   geom_point() +
-  
   xlab("t") +
-  
-  ylab("y") +
-  
+  ylab("N") +
   theme_bw()
 
-ggplot(aes(t,???), data = growth_data) +
-  
+ggplot(aes(t,N), data = growth_data) + # plot data on log scale
   geom_point() +
-  
   xlab("t") +
-  
-  ylab("y") +
-  
+  ylab("N") +
   scale_y_continuous(trans='log10')
